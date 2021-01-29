@@ -32,7 +32,7 @@ PORT=3000
    _To stop_
 
    ```bash
-   docker-compose -f docker-compse.db.yml down
+   docker-compose -f docker-compose.db.yml down
    ```
 
 2. Start Node server
