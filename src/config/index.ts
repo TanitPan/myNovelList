@@ -4,6 +4,7 @@ const dbConfig = {
     password: 'password',
     database: 'sequelize',
     host: 'localhost',
+    port: process.env.MYSQL_PORT || 3306,
     dialect: 'mysql',
   },
   test: {
@@ -11,6 +12,7 @@ const dbConfig = {
     password: 'password',
     database: 'sequelize',
     host: 'localhost',
+    port: process.env.MYSQL_PORT || 3306,
     dialect: 'mysql',
   },
   production: {
@@ -18,6 +20,7 @@ const dbConfig = {
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
     host: process.env.MYSQL_HOST,
+    port: process.env.MYSQL_PORT,
     dialect: 'mysql',
   },
 };

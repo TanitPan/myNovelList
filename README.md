@@ -15,6 +15,7 @@ MYSQL_USER=root
 MYSQL_PASSWORD=password
 MYSQL_HOST=localhost
 MYSQL_DATABASE=sequelize
+MYSQL_PORT=4000
 
 JWT_SECRET=jwt_secret
 PORT=3000

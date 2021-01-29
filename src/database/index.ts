@@ -6,6 +6,7 @@ import UserModel from '../models/users.model';
 const env = process.env.NODE_ENV || 'development';
 const sequelize = new Sequelize.Sequelize(config[env].database, config[env].username, config[env].password, {
   host: config[env].host,
+  port: config[env].port,
   dialect: config[env].dialect,
   timezone: '+09:00',
   define: {

@@ -8,5 +8,4 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: sequelize
     ports:
-      - "3306:3306"
-    
+      - '${MYSQL_PORT}:3306'
