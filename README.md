@@ -11,11 +11,12 @@ npm i
 Add configurations to `.env` file at the root of the project
 
 ```
-MYSQL_USER=root
-MYSQL_PASSWORD=password
-MYSQL_HOST=localhost
-MYSQL_DATABASE=sequelize
-MYSQL_PORT=4000
+DB_USER=root
+DB_PASSWORD=password
+DB_HOST=localhost
+DB_DATABASE=sequelize
+DB_PORT=3306
+DB_DIALECT=mysql
 
 JWT_SECRET=jwt_secret
 PORT=3000
@@ -26,13 +27,13 @@ PORT=3000
 1. Start MySQL server
 
    ```bash
-   docker-compose -f docker-compose.db.yml up
+   docker-compose up -d
    ```
 
    _To stop_
 
    ```bash
-   docker-compose -f docker-compose.db.yml down
+   docker-compose down
    ```
 
 2. Start Node server
