@@ -1,6 +1,6 @@
 import request from 'supertest';
 import App from '../app';
-import { User } from '../interfaces/users.interface';
+import { User } from '../interfaces/model.interface';
 import DB from '../database';
 import UserRoute from '../routes/users.route';
 import { CreateUserDto } from '../dtos/users.dto';

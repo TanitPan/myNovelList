@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { User } from '../interfaces/model.interface';
-
+//TODO:
 export type UserCreationAttributes = Optional<User, 'id' | 'email' | 'password'>;
 
 export class UserModel extends Model<User, UserCreationAttributes> implements User {

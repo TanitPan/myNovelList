@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 import config from '../config';
 import { logger } from '../utils/logger';
 import UserModel from '../models/users.model';
+import NovelModel from '../models/novels.model';
 
 const env = process.env.NODE_ENV || 'development';
 const sequelize = new Sequelize.Sequelize(config[env].database, config[env].username, config[env].password, {
@@ -23,6 +24,7 @@ const sequelize = new Sequelize.Sequelize(config[env].database, config[env].user
   benchmark: true,
 });
 
+// Start connection
 sequelize
   .authenticate()
   .then(() => {
@@ -32,8 +34,11 @@ sequelize
     logger.error(`🔴 Unable to connect to the database: ${error}.`);
   });
 
+// TODO: Create Readings table
+// We are trying to export this object to make available to other files
 const DB = {
-  Users: UserModel(sequelize),
+  Users: UserModel(sequelize), // create users table in database
+  Novels: NovelModel(sequelize), // create novels table in database
   sequelize, // connection instance (RAW queries)
   Sequelize, // library
 };
