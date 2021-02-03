@@ -1,39 +1,46 @@
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
-import { User } from '../interfaces/model.interface';
+import { Reading } from '../interfaces/model.interface';
 //TODO:
-export type UserCreationAttributes = Optional<User, 'id' | 'email' | 'password'>;
+export type ReadingCreationAttributes = Optional<Reading, 'id' | 'user_id' | 'novel_id' | 'progress'>;
 
-export class UserModel extends Model<User, UserCreationAttributes> implements User {
+export class ReadingModel extends Model<Reading, ReadingCreationAttributes> implements Reading {
   public id: number;
-  public email: string;
-  public password: string;
+  public user_id: number;
+  public novel_id: number;
+  public progress: number;
+  // public email: string;
+  // public password: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  // public readonly createdAt!: Date;
+  // public readonly updatedAt!: Date;
 }
 
-export default function (sequelize: Sequelize): typeof UserModel {
-  UserModel.init(
+export default function (sequelize: Sequelize): typeof ReadingModel {
+  ReadingModel.init(
     {
       id: {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      email: {
+      user_id: {
         allowNull: false,
-        type: DataTypes.STRING(45),
+        type: DataTypes.INTEGER,
       },
-      password: {
+      novel_id: {
         allowNull: false,
-        type: DataTypes.STRING(255),
+        type: DataTypes.INTEGER,
+      },
+      progress: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
       },
     },
     {
-      tableName: 'users',
+      tableName: 'readings',
       sequelize,
     },
   );
 
-  return UserModel;
+  return ReadingModel;
 }

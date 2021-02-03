@@ -3,6 +3,7 @@ import config from '../config';
 import { logger } from '../utils/logger';
 import UserModel from '../models/users.model';
 import NovelModel from '../models/novels.model';
+import ReadingModel from '../models/readings.model';
 
 const env = process.env.NODE_ENV || 'development';
 const sequelize = new Sequelize.Sequelize(config[env].database, config[env].username, config[env].password, {
@@ -39,6 +40,7 @@ sequelize
 const DB = {
   Users: UserModel(sequelize), // create users table in database
   Novels: NovelModel(sequelize), // create novels table in database
+  Readings: ReadingModel(sequelize), // create readings table in database
   sequelize, // connection instance (RAW queries)
   Sequelize, // library
 };

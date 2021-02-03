@@ -5,7 +5,12 @@ export interface User {
 }
 
 //TODO:
-export interface Reading {}
+export interface Reading {
+  id: number;
+  user_id: number;
+  novel_id: number;
+  progress: number;
+}
 
 //TODO:
 export interface Novel {
