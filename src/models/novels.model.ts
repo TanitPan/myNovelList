@@ -22,6 +22,7 @@ export default function (sequelize: Sequelize): typeof NovelModel {
       },
     },
     {
+      // modelName: 'novel',
       tableName: 'novels',
       sequelize,
     },

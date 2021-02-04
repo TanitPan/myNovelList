@@ -1,5 +1,7 @@
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { Reading } from '../interfaces/model.interface';
+import { NovelModel } from './novels.model';
+import { UserModel } from './users.model';
 //TODO:
 export type ReadingCreationAttributes = Optional<Reading, 'id' | 'user_id' | 'novel_id' | 'progress'>;
 
@@ -37,10 +39,25 @@ export default function (sequelize: Sequelize): typeof ReadingModel {
       },
     },
     {
+      // modelName: 'reading',
       tableName: 'readings',
       sequelize,
     },
   );
+
+  UserModel.hasOne(ReadingModel, {
+    foreignKey: {
+      name: 'USER_ID'
+    }
+  });
+  ReadingModel.belongsTo(UserModel);
+
+  NovelModel.hasOne(ReadingModel, {
+    foreignKey: {
+      name: 'NOVEL_ID'
+    }
+  });
+  ReadingModel.belongsTo(NovelModel);
 
   return ReadingModel;
 }
